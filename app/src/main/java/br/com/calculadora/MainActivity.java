@@ -102,6 +102,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+
     public boolean contemOperacao(TextView saida) {
 
         //SO DIGITOS
@@ -134,10 +135,6 @@ public class MainActivity extends AppCompatActivity {
             }
             return true;
         }else if(contadorDeSinais == 2 && numeroNegativo){
-
-
-
-
             return true;
         }
         return false;
@@ -170,6 +167,10 @@ public class MainActivity extends AppCompatActivity {
                return subtrair(new BigDecimal(numeros.get(0)), new BigDecimal(numeros.get(1)));
             case "÷":
                 numeros = Arrays.asList(saida.getText().toString().split("÷"));
+                if(numeros.get(1).equals("0")){
+                    String mensagem = "OPERAÇÃO INVÁLIDA";
+                    return mensagem;
+                }
                 return dividir(new BigDecimal(numeros.get(0)), new BigDecimal(numeros.get(1)));
             case "*":
                 numeros = Arrays.asList(saida.getText().toString().split("\\*"));
